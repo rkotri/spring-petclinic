@@ -22,8 +22,8 @@ pipeline {
     }
     
     tools {
-        jdk "localJDK"
-        maven "localMaven"
+        jdk "localjdk"
+        maven "localmaven"
     }
     
     stages {
@@ -102,7 +102,7 @@ pipeline {
  stage('Analysis with SonarQube') {
             steps {
                 echo 'Run sonarQube Analysis'
-                withSonarQubeEnv(installationName : 'sonarServer' , credentialsId : 'cred4sonar') 
+                withSonarQubeEnv(installationName : 'sonarserver' , credentialsId : 'cred4sonar') 
                 {
                     sh "mvn clean package sonar:sonar"
                     }
